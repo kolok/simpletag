@@ -69,7 +69,7 @@ exports.call = function (req, res) {
           message: errorHandler.getErrorMessage(err)
         });
       } else {
-		res.json(req.tag.content);
+          res.send(req.tag.content);
       }
     });
 };
