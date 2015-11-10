@@ -28,6 +28,10 @@ var TagSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  count: {
+    type: Number,
+    default: 0
   }
 });
 

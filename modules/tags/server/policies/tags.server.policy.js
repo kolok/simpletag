@@ -36,6 +36,10 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/tags',
       permissions: ['get']
     }, {
+// external call : should be moved
+      resources: '/api/tags/call',
+      permissions: ['get']
+    }, {
       resources: '/api/tags/:tagId',
       permissions: ['get']
     }]

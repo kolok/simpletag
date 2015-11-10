@@ -1,0 +1,6 @@
+* Exemple of tag :
+see in public/js/simpletag.html/js
+
+Call to do in JS to get the content of a tag :
+URL/api/tags/call/TAGID
+Ex : http://localhost:3000/api/tags/call/563deaa4deee2b7605b1da37

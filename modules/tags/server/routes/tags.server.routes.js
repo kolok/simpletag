@@ -18,6 +18,10 @@ module.exports = function (app) {
     .put(tags.update)
     .delete(tags.delete);
 
+  // Single tag routes : external call
+  app.route('/api/tags/call/:tagId').all(tagsPolicy.isAllowed)
+    .get(tags.call);
+
   // Finish by binding the tag middleware
   app.param('tagId', tags.tagByID);
 };

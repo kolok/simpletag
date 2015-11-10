@@ -54,6 +54,28 @@ exports.update = function (req, res) {
 };
 
 /**
+ * Call the current tag :
+ *   increment the count
+ *   return the content
+ */
+exports.call = function (req, res) {
+    var tag = req.tag;
+
+    tag.count++;
+
+    tag.save(function (err) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+		res.json(req.tag.content);
+      }
+    });
+};
+
+
+/**
  * Delete an tag
  */
 exports.delete = function (req, res) {
