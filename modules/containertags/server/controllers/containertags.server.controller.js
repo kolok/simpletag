@@ -40,7 +40,7 @@ exports.update = function (req, res) {
   var containertag = req.containertag;
 
   containertag.title = req.body.title;
-  containertag.content = req.body.content;
+  containertag.comment = req.body.comment;
 
   containertag.save(function (err) {
     if (err) {

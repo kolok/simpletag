@@ -47,7 +47,7 @@ describe('Containertag CRUD tests', function () {
     user.save(function () {
       containertag = {
         title: 'Containertag Title',
-        content: 'Containertag Content'
+        comment: 'Containertag Comment'
       };
 
       done();

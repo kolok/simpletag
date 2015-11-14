@@ -18,7 +18,7 @@ angular.module('containertags').controller('ContainertagsController', ['$scope',
       // Create new Containertag object
       var containertag = new Containertags({
         title: this.title,
-        content: this.content
+        comment: this.comment
       });
 
       // Redirect after save
@@ -27,7 +27,7 @@ angular.module('containertags').controller('ContainertagsController', ['$scope',
 
         // Clear form fields
         $scope.title = '';
-        $scope.content = '';
+        $scope.comment = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });

@@ -53,7 +53,7 @@
       mockContainertag = new Containertags({
         _id: '525a8422f6d0f87f0e407a33',
         title: 'An Containertag about MEAN',
-        content: 'MEAN rocks!'
+        comment: 'MEAN rocks!'
       });
 
       // Mock logged in user
@@ -104,12 +104,12 @@
         // Create a sample containertag object
         sampleContainertagPostData = new Containertags({
           title: 'An Containertag about MEAN',
-          content: 'MEAN rocks!'
+          comment: 'MEAN rocks!'
         });
 
         // Fixture mock form input values
         scope.title = 'An Containertag about MEAN';
-        scope.content = 'MEAN rocks!';
+        scope.comment = 'MEAN rocks!';
 
         spyOn($location, 'path');
       });
@@ -124,7 +124,7 @@
 
         // Test form inputs are reset
         expect(scope.title).toEqual('');
-        expect(scope.content).toEqual('');
+        expect(scope.comment).toEqual('');
 
         // Test URL redirection after the containertag was created
         expect($location.path.calls.mostRecent().args[0]).toBe('containertags/' + mockContainertag._id);

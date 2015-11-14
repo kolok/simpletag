@@ -20,7 +20,7 @@ var ContainertagSchema = new Schema({
     trim: true,
     required: 'Title cannot be blank'
   },
-  content: {
+  comment: {
     type: String,
     default: '',
     trim: true

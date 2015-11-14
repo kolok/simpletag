@@ -30,7 +30,7 @@ describe('Containertag Model Unit Tests:', function () {
     user.save(function () {
       containertag = new Containertag({
         title: 'Containertag Title',
-        content: 'Containertag Content',
+        comment: 'Containertag Comment',
         user: user
       });
 
