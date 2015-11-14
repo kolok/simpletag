@@ -1,0 +1,20 @@
+<section ng-controller="ContainertagsController" ng-init="find()">
+  <div class="page-header">
+    <h1>Containertags</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="containertag in containertags" ui-sref="containertags.view({containertagId: containertag._id})" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="containertag.created | date:'mediumDate'"></span>
+        by
+        <span ng-bind="containertag.user.displayName"></span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="containertag.title"></h4>
+      <p class="list-group-item-text" ng-bind="containertag.content"></p>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="containertags.$resolved && !containertags.length">
+    No containertags yet, why don't you <a ui-sref="containertags.create">create one</a>?
+  </div>
+</section>

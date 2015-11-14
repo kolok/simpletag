@@ -1,0 +1,22 @@
+<section ng-controller="ContainertagsController" ng-init="findOne()">
+  <div class="page-header">
+    <h1 ng-bind="containertag.title"></h1>
+  </div>
+  <div class="pull-right" ng-show="authentication.user._id == containertag.user._id">
+    <a class="btn btn-primary" ui-sref="containertags.edit({containertagId: containertag._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="containertag.created | date:'mediumDate'"></span>
+      by
+      <span ng-bind="containertag.user.displayName"></span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="containertag.content"></p>
+</section>
