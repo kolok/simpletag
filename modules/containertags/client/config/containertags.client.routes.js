@@ -25,6 +25,13 @@ angular.module('containertags').config(['$stateProvider',
         url: '/:containertagId',
         templateUrl: 'modules/containertags/client/views/view-containertag.client.view.html'
       })
+      .state('containertags.editWithTag', {
+        url: '/:containertagId/editwithtag',
+        templateUrl: 'modules/containertags/client/views/editwithtag-containertag.client.view.html',
+        data: {
+          roles: ['user', 'admin']
+        }
+      })
       .state('containertags.edit', {
         url: '/:containertagId/edit',
         templateUrl: 'modules/containertags/client/views/edit-containertag.client.view.html',

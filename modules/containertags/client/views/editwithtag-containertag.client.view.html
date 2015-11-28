@@ -1,0 +1,28 @@
+<section ng-controller="ContainertagsController" ng-init="findOne()">
+  <div class="page-header">
+    <h1>Edit Container tag with its tags</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="containertagForm" class="form-horizontal" ng-submit="update(containertagForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="title">Title</label>
+          <input name="title" type="text" ng-model="containertag.title" id="title" class="form-control" placeholder="Title" required>
+          <div ng-messages="containertagForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Containertag title is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea name="comment" ng-model="containertag.comment" id="comment" class="form-control" cols="30" rows="10" placeholder="Comment"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Update" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

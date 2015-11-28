@@ -80,5 +80,13 @@ angular.module('containertags').controller('ContainertagsController', ['$scope',
         containertagId: $stateParams.containertagId
       });
     };
+
+    // Find existing Containertag with its Container Tags
+    $scope.findOneWithTags = function () {
+      $scope.containertag = Containertags.getWithTags({
+        containertagId: $stateParams.containertagId
+      });
+    };
+
   }
 ]);

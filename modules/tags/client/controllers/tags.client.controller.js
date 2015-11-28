@@ -1,9 +1,12 @@
 'use strict';
 
 // Tags controller
-angular.module('tags').controller('TagsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tags',
-  function ($scope, $stateParams, $location, Authentication, Tags) {
+angular.module('tags').controller('TagsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tags', 'Containertags',
+  function ($scope, $stateParams, $location, Authentication, Tags, Containertags) {
     $scope.authentication = Authentication;
+
+    // get container tag list
+    $scope.containertags = Containertags.query();
 
     // Create new Tag
     $scope.create = function (isValid) {
@@ -14,11 +17,11 @@ angular.module('tags').controller('TagsController', ['$scope', '$stateParams', '
 
         return false;
       }
-
       // Create new Tag object
       var tag = new Tags({
         title: this.title,
-        content: this.content
+        content: this.content,
+        containertag: this.containertag
       });
 
       // Redirect after save
@@ -28,6 +31,7 @@ angular.module('tags').controller('TagsController', ['$scope', '$stateParams', '
         // Clear form fields
         $scope.title = '';
         $scope.content = '';
+        $scope.containertagId = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });

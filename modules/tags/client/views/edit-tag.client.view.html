@@ -12,6 +12,13 @@
             <p class="help-block error-text" ng-message="required">Tag title is required.</p>
           </div>
         </div>
+
+        <div class="form-group" show-errors>
+          <label for="containertag">Container Tag</label>
+          {{tag.containertag}}
+          <select name="containertag" id="containertag" class="form-control" ng-model="tag.containertag" ng-options="ct as ct.title for ct in containertags track by ct._id" required></select>
+        </div>
+
         <div class="form-group">
           <label for="content">Content</label>
           <textarea name="content" ng-model="tag.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>

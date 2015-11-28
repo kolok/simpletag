@@ -25,9 +25,18 @@ var TagSchema = new Schema({
     default: '',
     trim: true
   },
+  tag: {
+    type: String,
+    default: '',
+    trim: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  containertag: {
+    type: Schema.ObjectId,
+    ref: 'Containertags'
   },
   count: {
     type: Number,
