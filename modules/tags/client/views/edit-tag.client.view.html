@@ -16,7 +16,7 @@
         <div class="form-group" show-errors>
           <label for="containertag">Container Tag</label>
           {{tag.containertag}}
-          <select name="containertag" id="containertag" class="form-control" ng-model="tag.containertag" ng-options="ct as ct.title for ct in containertags track by ct._id" required></select>
+          <select name="containertag" id="containertag" class="form-control" ng-model="tag.containertag._id" ng-options="ct._id as ct.title for ct in containertags" required></select>
         </div>
 
         <div class="form-group">

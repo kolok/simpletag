@@ -1,8 +1,8 @@
 'use strict';
 
 // Tags controller
-angular.module('tags').controller('TagsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tags', 'Containertags',
-  function ($scope, $stateParams, $location, Authentication, Tags, Containertags) {
+angular.module('tags').controller('TagsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tags', 'Containertags', '$filter',
+  function ($scope, $stateParams, $location, Authentication, Tags, Containertags, $filter) {
     $scope.authentication = Authentication;
 
     // get container tag list
@@ -65,6 +65,7 @@ angular.module('tags').controller('TagsController', ['$scope', '$stateParams', '
       }
 
       var tag = $scope.tag;
+			tag.containertag = tag.containertag._id;
 
       tag.$update(function () {
         $location.path('tags/' + tag._id);
@@ -72,6 +73,13 @@ angular.module('tags').controller('TagsController', ['$scope', '$stateParams', '
         $scope.error = errorResponse.data.message;
       });
     };
+
+    var appendContainertag = function appendContainertag(t) {
+			// You could substitue use of filter here with underscore etc.
+      console.log(t.containertag);
+			t.containertag = $filter('filter')($scope.containertags, {_id: t.containertag})[0];
+      console.log(t.containertag);
+		};
 
     // Find a list of Tags
     $scope.find = function () {
@@ -82,7 +90,7 @@ angular.module('tags').controller('TagsController', ['$scope', '$stateParams', '
     $scope.findOne = function () {
       $scope.tag = Tags.get({
         tagId: $stateParams.tagId
-      });
+      },appendContainertag);
     };
   }
 ]);
